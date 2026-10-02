@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: beharad-image-ai
+    runtime: python
+
+    buildCommand: pip install -r requirements.txt
+
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+
+    envVars:
+      - key: POLLINATIONS_API_KEY
+        sync: false

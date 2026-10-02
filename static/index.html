@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="BEHRAD IMAGE AI - تبدیل ایده‌های شما به تصویر با هوش مصنوعی"
+    >
+
+    <meta
+        name="theme-color"
+        content="#060812"
+    >
+
+    <title>BEHRAD IMAGE AI</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+</head>
+
+<body>
+
+<div class="background-grid"></div>
+
+<div class="ambient ambient-one"></div>
+<div class="ambient ambient-two"></div>
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            ✦
+        </div>
+
+        <div>
+            <div class="brand-name">
+                BEHRAD IMAGE AI
+            </div>
+
+            <div class="brand-sub">
+                AI IMAGE GENERATOR
+            </div>
+        </div>
+
+    </div>
+
+    <div class="online-badge">
+        <span></span>
+        AI ONLINE
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <section class="hero">
+
+        <div class="hero-badge">
+            ✨ POWERED BY AI
+        </div>
+
+        <h1>
+            ایده‌ات را
+            <span>به تصویر</span>
+            تبدیل کن.
+        </h1>
+
+        <p>
+            فقط چیزی که در ذهنت داری بنویس؛
+            BEHRAD IMAGE AI آن را به یک تصویر تبدیل می‌کند.
+        </p>
+
+    </section>
+
+
+    <section class="workspace">
+
+        <!-- LEFT / CONTROL -->
+
+        <div class="control-panel">
+
+            <div class="section-title">
+                <div>
+                    <small>CREATE</small>
+                    <h2>ساخت تصویر</h2>
+                </div>
+
+                <div class="spark">
+                    ✦
+                </div>
+            </div>
+
+
+            <label class="field-label">
+                توضیح تصویر
+            </label>
+
+            <div class="prompt-box">
+
+                <textarea
+                    id="prompt"
+                    maxlength="4000"
+                    placeholder="مثلاً: یک شهر آینده‌نگر در شب، باران نئون، سینمایی، جزئیات فوق‌العاده..."
+                    autocomplete="off"
+                    spellcheck="false"
+                ></textarea>
+
+                <div class="prompt-bottom">
+
+                    <div class="prompt-tip">
+                        Ctrl + Enter برای ساخت
+                    </div>
+
+                    <div id="counter">
+                        0 / 4000
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-prompts">
+
+                <button
+                    type="button"
+                    data-prompt="A futuristic neon city at night, cinematic lighting, ultra detailed, realistic"
+                >
+                    🌃 شهر آینده
+                </button>
+
+                <button
+                    type="button"
+                    data-prompt="A powerful cyberpunk warrior standing in heavy rain, dramatic lighting, cinematic composition"
+                >
+                    🤖 سایبرپانک
+                </button>
+
+                <button
+                    type="button"
+                    data-prompt="A magical floating island above the clouds, epic fantasy environment, beautiful sunlight"
+                >
+                    🏝️ فانتزی
+                </button>
+
+                <button
+                    type="button"
+                    data-prompt="A futuristic gaming setup in a dark room, RGB lighting, ultra realistic product photography"
+                >
+                    🎮 گیمینگ
+                </button>
+
+            </div>
+
+
+            <div class="settings-grid">
+
+                <div class="field">
+
+                    <label class="field-label">
+                        مدل
+                    </label>
+
+                    <select id="model">
+                        <option value="black-forest-labs/flux.2-pro">
+                            FLUX 2 PRO
+                        </option>
+
+                        <option value="google/gemini-3.1-flash-image">
+                            Gemini 3.1 Flash Image
+                        </option>
+
+                        <option value="qwen/qwen-image-2.1">
+                            Qwen Image 2.1
+                        </option>
+
+                        <option value="openai/gpt-image-2">
+                            GPT Image 2
+                        </option>
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label class="field-label">
+                        اندازه
+                    </label>
+
+                    <select id="size">
+
+                        <option value="1024x1024">
+                            1024 × 1024
+                        </option>
+
+                        <option value="1152x768">
+                            1152 × 768
+                        </option>
+
+                        <option value="768x1152">
+                            768 × 1152
+                        </option>
+
+                        <option value="1280x720">
+                            1280 × 720
+                        </option>
+
+                        <option value="720x1280">
+                            720 × 1280
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="advanced">
+
+                <div class="advanced-title">
+                    تنظیمات بیشتر
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <strong>✨ Enhance</strong>
+                        <small>بهبود خودکار Prompt</small>
+                    </div>
+
+                    <label class="switch">
+                        <input
+                            id="enhance"
+                            type="checkbox"
+                        >
+                        <span></span>
+                    </label>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <strong>🛡️ Safe Mode</strong>
+                        <small>فیلتر ایمنی تصویر</small>
+                    </div>
+
+                    <label class="switch">
+                        <input
+                            id="safe"
+                            type="checkbox"
+                            checked
+                        >
+                        <span></span>
+                    </label>
+
+                </div>
+
+
+                <div class="seed-row">
+
+                    <div class="field">
+
+                        <label class="field-label">
+                            Seed
+                        </label>
+
+                        <input
+                            id="seed"
+                            type="number"
+                            min="-1"
+                            max="2147483647"
+                            value="-1"
+                        >
+
+                    </div>
+
+                    <button
+                        type="button"
+                        id="random-seed"
+                        class="seed-button"
+                    >
+                        🎲 تصادفی
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="generate"
+                class="generate-button"
+                type="button"
+            >
+
+                <span class="generate-icon">
+                    ✦
+                </span>
+
+                <span>
+                    ساخت تصویر
+                </span>
+
+                <span class="generate-arrow">
+                    ←
+                </span>
+
+            </button>
+
+            <div
+                id="status"
+                class="status"
+                aria-live="polite"
+            ></div>
+
+        </div>
+
+
+        <!-- RIGHT / PREVIEW -->
+
+        <div class="preview-panel">
+
+            <div class="preview-header">
+
+                <div>
+                    <small>PREVIEW</small>
+                    <h2>خروجی</h2>
+                </div>
+
+                <div id="model-status">
+                    READY
+                </div>
+
+            </div>
+
+
+            <div
+                id="preview"
+                class="preview"
+            >
+
+                <div
+                    id="empty-state"
+                    class="empty-state"
+                >
+
+                    <div class="empty-icon">
+                        ◈
+                    </div>
+
+                    <h3>
+                        تصویرت اینجا ساخته می‌شود
+                    </h3>
+
+                    <p>
+                        یک Prompt بنویس و روی «ساخت تصویر» بزن.
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="loading-state"
+                    class="loading-state hidden"
+                >
+
+                    <div class="loader"></div>
+
+                    <strong>
+                        در حال ساخت تصویر...
+                    </strong>
+
+                    <span>
+                        ممکن است چند لحظه طول بکشد
+                    </span>
+
+                </div>
+
+
+                <img
+                    id="result-image"
+                    class="result-image hidden"
+                    alt="Generated image"
+                >
+
+            </div>
+
+
+            <div
+                id="actions"
+                class="actions hidden"
+            >
+
+                <button
+                    type="button"
+                    id="download"
+                >
+                    ⬇ دانلود
+                </button>
+
+                <button
+                    type="button"
+                    id="regenerate"
+                >
+                    🔄 دوباره بساز
+                </button>
+
+                <button
+                    type="button"
+                    id="copy-prompt"
+                >
+                    📋 کپی Prompt
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="history-section">
+
+        <div class="history-header">
+
+            <div>
+                <small>HISTORY</small>
+                <h2>تصاویر اخیر</h2>
+            </div>
+
+            <button
+                id="clear-history"
+                type="button"
+            >
+                پاک کردن
+            </button>
+
+        </div>
+
+
+        <div
+            id="history"
+            class="history"
+        ></div>
+
+        <div
+            id="history-empty"
+            class="history-empty"
+        >
+            هنوز تصویری ساخته نشده.
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <span>
+        BEHRAD IMAGE AI
+    </span>
+
+    <span>
+        Built with AI ⚡
+    </span>
+
+</footer>
+
+
+<script src="/static/app.js"></script>
+
+</body>
+              </html>
